@@ -1,6 +1,6 @@
 import { component$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
-import { AutoComplete, Todos } from '@mitosiscn/library-qwik';
+import { AutoComplete, Todos, Button } from '@mitosiscn/library-qwik/src';
 
 export default component$(() => {
   return (
@@ -8,6 +8,7 @@ export default component$(() => {
       <div>Welcome to Qwik</div>
       <AutoComplete />
       <Todos />
+      <Button element='button' />
     </>
   );
 });
