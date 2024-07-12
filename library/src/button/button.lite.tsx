@@ -1,6 +1,4 @@
-import { Show } from "@builder.io/mitosis";
-import '@builder.io/mitosis/jsx-runtime';
-import { JSX } from '@builder.io/mitosis/jsx-runtime';
+import { Show, Slot } from "@builder.io/mitosis";
 import { type VariantProps } from "class-variance-authority";
 import { cn } from "../lib/utils";
 import { buttonVariants } from "./buttonvariants";
@@ -9,11 +7,10 @@ export interface ButtonProps extends VariantProps<typeof buttonVariants> {
   className?: string;
   element: "button" | "a" | "div";
   buttonRef?: any;
-  children: JSX.Element;
   // needs much more attributes like onclick etc but react-independent attribute derivation
 }
 
-export default function Button(props: Readonly<ButtonProps>) {
+export default function Button(props: ButtonProps) {
   return (
     <>
       <Show when={props.element === "a"}>
@@ -28,7 +25,7 @@ export default function Button(props: Readonly<ButtonProps>) {
           ref={props.buttonRef}
           {...props}
         >
-          {props.children}
+          <Slot />
         </a>
       </Show>
       <Show when={props.element === "button"}>
@@ -43,7 +40,7 @@ export default function Button(props: Readonly<ButtonProps>) {
           ref={props.buttonRef}
           {...props}
         >
-          {props.children}
+          <Slot />
         </button>
       </Show>
     </>

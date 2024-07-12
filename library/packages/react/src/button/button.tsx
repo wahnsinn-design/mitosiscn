@@ -5,7 +5,6 @@ export interface ButtonProps extends VariantProps<typeof buttonVariants> {
   className?: string;
   element: "button" | "a" | "div";
   buttonRef?: any;
-  children: JSX.Element;
   // needs much more attributes like onclick etc but react-independent attribute derivation
 }
 
@@ -13,8 +12,8 @@ import { VariantProps } from "class-variance-authority";
 import { cn } from "../lib/utils";
 import { buttonVariants } from "./buttonvariants";
 
-const Button = forwardRef<Readonly<ButtonProps>["buttonRef"]>(function Button(
-  props: Readonly<ButtonProps>,
+const Button = forwardRef<ButtonProps["buttonRef"]>(function Button(
+  props: ButtonProps,
   buttonRef
 ) {
   return (
@@ -31,7 +30,7 @@ const Button = forwardRef<Readonly<ButtonProps>["buttonRef"]>(function Button(
             })
           )}
         >
-          {props.children}
+          <>{props.children}</>
         </a>
       ) : null}
       {props.element === "button" ? (
@@ -46,7 +45,7 @@ const Button = forwardRef<Readonly<ButtonProps>["buttonRef"]>(function Button(
             })
           )}
         >
-          {props.children}
+          <>{props.children}</>
         </button>
       ) : null}
     </>

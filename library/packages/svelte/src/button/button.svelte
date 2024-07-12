@@ -3,7 +3,6 @@
     className?: string;
     element: "button" | "a" | "div";
     buttonRef?: any;
-    children: JSX.Element;
     // needs much more attributes like onclick etc but react-independent attribute derivation
   }
 </script>
@@ -13,11 +12,11 @@
   import { cn } from "../lib/utils";
   import { buttonVariants } from "./buttonvariants";
 
-  export let element: Readonly<ButtonProps>["element"];
-  export let buttonRef: Readonly<ButtonProps>["buttonRef"] = undefined;
-  export let variant: Readonly<ButtonProps>["variant"];
-  export let size: Readonly<ButtonProps>["size"];
-  export let className: Readonly<ButtonProps>["className"] = undefined;
+  export let element: ButtonProps["element"];
+  export let buttonRef: ButtonProps["buttonRef"] = undefined;
+  export let variant: ButtonProps["variant"];
+  export let size: ButtonProps["size"];
+  export let className: ButtonProps["className"] = undefined;
 </script>
 
 {#if element === "a"}
