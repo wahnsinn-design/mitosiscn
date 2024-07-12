@@ -3,7 +3,7 @@
     className?: string;
     element: "button" | "a" | "div";
     buttonRef?: any;
-    children?: JSX.Element;
+    children: JSX.Element;
     // needs much more attributes like onclick etc but react-independent attribute derivation
   }
 </script>
