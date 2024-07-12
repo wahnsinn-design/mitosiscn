@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "strict": true,
+    "jsx": "preserve",
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "jsxImportSource": "@builder.io/mitosis",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "lib": ["dom", "dom.iterable"]
+  },
+  "include": ["src"]
+}
